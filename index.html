@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png" />
+
+    <title>Newsletter sign-up form with success message</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+      *::-webkit-scrollbar {
+        width: 8px;
+        background-color: #f0f0f0;
+      }
+      *::-webkit-scrollbar-thumb {
+        background-color: #9795956a;
+        border-radius: 50px;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: "Karla", sans-serif;
+        font-weight: bold;
+        background-color: rgb(45, 89, 113);
+      }
+      .container {
+        display: flex;
+        background-color: #ffff;
+        border-radius: 20px;
+      }
+
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 290px;
+        margin: 2rem;
+      }
+      h1 {
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: small;
+        font-family: "Karla", sans-serif;
+        margin: 4px 0;
+      }
+      form {
+        display: grid;
+      }
+      span {
+        margin-top: 20px;
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: 25px 1fr;
+        gap: 8px;
+      }
+      .forlab {
+        display: flex;
+        justify-content: space-between;
+      }
+      label {
+        font-weight: bold;
+        font-size: 12px;
+        margin-top: 40px;
+        margin-bottom: 3px;
+      }
+      input {
+        border-radius: 5px;
+        border: 1px solid rgb(112, 112, 112);
+        padding: 15px;
+        margin-bottom: 15px;
+        cursor: pointer;
+      }
+      button {
+        background-color: rgb(16, 10, 47);
+        color: #fff;
+        text-align: center;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        padding: 15px;
+        margin: 5px 0;
+        cursor: pointer;
+      }
+      button:active {
+        background: linear-gradient(to right, #ff33cc, #ff9900);
+        box-shadow: 0 1px 3px 2px rgba(233, 141, 141, 0.516);
+      }
+      aside {
+        margin: 2rem;
+      }
+      .imga {
+        width: 300px;
+      }
+      .errorr {
+        color: red;
+        font-size: 10px;
+        margin-top: 40px;
+        padding: 0;
+        text-align: end;
+      }
+
+      @media screen and (max-width: 420px) {
+        body {
+          background-color: #fff;
+          overflow-y: auto;
+          overflow-x: hidden;
+        }
+        .container {
+          height: 120vh;
+          flex-direction: column;
+          border-radius: 0;
+          max-width: 100vw;
+        }
+        .wrapper {
+          height: 100vh;
+          padding-top: 25vh;
+          width: 250px;
+        }
+        h1 {
+          margin-top: 75px;
+          font-size: 35px;
+        }
+
+        .imga {
+          content: url("./assets/images/illustration-sign-up-mobile.svg");
+          position: absolute;
+          top: -1px;
+          left: 0px;
+          width: 100%;
+        }
+      }
+      @media (min-width: 375px) and (max-width: 420px) {
+        .wrapper {
+          padding-top: 30vh;
+        }
+      }
+      @media screen and (min-width: 425px) {
+        .container {
+          overflow-x: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="wrapper">
+        <h1>Stay updated!</h1>
+
+        <p>Join 60,000+ product managers receiving monthly updates on:</p>
+
+        <span
+          ><img class="imgb" src="./assets/images/icon-list.svg" alt="" />
+          <p>Product discovery and building what matters</p>
+          <img class="imgb" src="./assets/images/icon-list.svg" alt="" />
+          <p>Measuring to ensure updates are a success</p>
+          <img class="imgb" src="./assets/images/icon-list.svg" alt="" />
+          <p>And much more!</p></span
+        >
+        <form id="signup">
+          <div class="forlab">
+            <label>Email address </label>
+            <p class="errorr" id="email-error"></p>
+          </div>
+          <input id="email" type="email" placeholder="email@company.com" />
+          <button type="submit">Subscribe to monthly newsletter</button>
+        </form>
+      </section>
+      <aside>
+        <img
+          class="imga"
+          src="./assets/images/illustration-sign-up-desktop.svg"
+          alt="" />
+      </aside>
+    </div>
+    <script>
+      const emailForm = document.getElementById("signup");
+      const emailInput = document.getElementById("email");
+      const emailError = document.getElementById("email-error");
+      const emailRegex =
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+      emailForm.addEventListener("submit", function (event) {
+        if (!emailRegex.test(emailInput.value)) {
+          event.preventDefault();
+          emailError.textContent = "Valid email required";
+          emailError.classList.add("errorr");
+        } else {
+          emailError.textContent = "";
+          emailError.classList.remove("errorr");
+          window.open("./success.html");
+        }
+      });
+    </script>
+  </body>
+</html>

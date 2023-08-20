@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Success page</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: "karla", sans-serif;
+        background-color: rgb(45, 89, 113);
+      }
+      .container {
+        display: grid;
+        background-color: #ffff;
+        border-radius: 20px;
+        width: 300px;
+        height: 350px;
+        padding: 3rem;
+      }
+      .imgb {
+        width: 40px;
+        height: 50px;
+      }
+      .word1 {
+        margin: 0;
+        font-weight: 800;
+        font-size: 40px;
+      }
+      .word2 {
+        margin: 0;
+        font-size: small;
+      }
+
+      .btn {
+        background-color: rgb(16, 10, 47);
+        color: #fff;
+        text-align: center;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        margin: 5px 0;
+        padding: 15px;
+        width: 100%;
+        cursor: pointer;
+      }
+      .btn:active {
+        background: linear-gradient(to right, #ff33cc, #ff9900);
+        box-shadow: 0 1px 3px 2px rgba(233, 141, 141, 0.516);
+      }
+
+      @media screen and (max-width: 420px) {
+        body {
+          background-color: #fff;
+          overflow: hidden;
+        }
+        .container {
+          width: 100vw;
+          height: 100vh;
+          padding: 10rem 1rem 5rem 1rem;
+          display: flex;
+          flex-direction: column;
+        }
+        .imgb {
+          margin-bottom: 20px;
+        }
+        .word1 {
+          margin-bottom: 20px;
+        }
+        .word2 {
+          line-height: 20px;
+        }
+        .btn {
+          margin-top: 150px;
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img class="imgb" src="./assets/images/icon-list.svg" alt="" />
+      <h1 class="word1">Thanks for subscribing!</h1>
+      <p class="word2">
+        A confirmation email has been sent to
+        <strong>ash@loremcompany.com</strong>. Please open it and click the
+        button inside to confirm your subscription.
+      </p>
+      <a href="./index.html"><button class="btn">Dismiss message</button></a>
+    </div>
+  </body>
+</html>
