@@ -13,14 +13,27 @@
     <title>Newsletter sign-up form with success message</title>
 
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+      :root {
+        /* colors */
+        --White: hsl(0, 0%, 100%);
+        --Grey: hsl(231, 7%, 60%);
+        --Darkgrey: hsl(235, 18%, 26%);
+        --Darkergrey: hsl(234, 29%, 20%);
+        --red: hsl(4, 100%, 67%);
+        --variantRed: hsla(4, 86%, 74%, 0.164);
+
+        /* font */
+        --Fontfamily: "Roboto", sans-serif;
+      }
 
       *::-webkit-scrollbar {
         width: 8px;
-        background-color: #f0f0f0;
+        background-color: var(--White);
       }
       *::-webkit-scrollbar-thumb {
-        background-color: #9795956a;
+        background-color: var(--Grey);
         border-radius: 50px;
       }
 
@@ -29,13 +42,15 @@
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        font-family: "Karla", sans-serif;
+        font-family: var(--Fontfamily);
         font-weight: bold;
-        background-color: rgb(45, 89, 113);
+        background-color: var(--Darkgrey);
+        width: 100%;
       }
+      /* Form Page Style Start */
       .container {
         display: flex;
-        background-color: #ffff;
+        background-color: var(--White);
         border-radius: 20px;
       }
 
@@ -51,7 +66,7 @@
       }
       p {
         font-size: small;
-        font-family: "Karla", sans-serif;
+        font-family: var(--Fontfamily);
         margin: 4px 0;
       }
       form {
@@ -76,14 +91,14 @@
       }
       input {
         border-radius: 5px;
-        border: 1px solid rgb(112, 112, 112);
+        border: 1px solid var(--Darkgrey);
         padding: 15px;
         margin-bottom: 15px;
         cursor: pointer;
       }
       button {
-        background-color: rgb(16, 10, 47);
-        color: #fff;
+        background-color: var(--Darkergrey);
+        color: var(--White);
         text-align: center;
         font-weight: bold;
         border: none;
@@ -92,9 +107,10 @@
         margin: 5px 0;
         cursor: pointer;
       }
-      button:active {
+      button:active,
+      button:hover {
         background: linear-gradient(to right, #ff33cc, #ff9900);
-        box-shadow: 0 1px 3px 2px rgba(233, 141, 141, 0.516);
+        box-shadow: 0 1px 3px 2px var(--red);
       }
       aside {
         margin: 2rem;
@@ -109,13 +125,58 @@
         padding: 0;
         text-align: end;
       }
+      /* Form Page Style End */
+
+      /* Success Page Style Start */
+      .container2 {
+        display: none;
+        background-color: var(--White);
+        border-radius: 20px;
+        width: 300px;
+        height: 350px;
+        padding: 3rem;
+      }
+      .imgb {
+        width: 20px;
+        height: 20px;
+      }
+      .word1 {
+        margin: 0;
+        font-weight: 800;
+        font-size: 40px;
+      }
+      .word2 {
+        margin: 0;
+        font-size: small;
+        font-weight: lighter;
+      }
+
+      .btn2 {
+        background-color: var(--Darkergrey);
+        color: var(--White);
+        text-align: center;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        margin: 5px 0;
+        padding: 5px;
+        width: 100%;
+        cursor: pointer;
+      }
+      .btn2:active,
+      .btn2:hover {
+        background: linear-gradient(to right, #ff33cc, #ff9900);
+        box-shadow: 0 1px 3px 2px var(--red);
+      }
+      /* Success Page Style End */
 
       @media screen and (max-width: 420px) {
         body {
-          background-color: #fff;
-          overflow-y: auto;
-          overflow-x: hidden;
+          background-color: var(--White);
+          /* overflow-y: auto;
+          overflow-x: hidden; */
         }
+        /* Form Page Mobile Style Start */
         .container {
           height: 120vh;
           flex-direction: column;
@@ -139,6 +200,30 @@
           left: 0px;
           width: 100%;
         }
+        /*Form Page Mobile Style End */
+
+        /* Success Page Mobile Style Start */
+        .container2 {
+          width: 100vw;
+          height: 100vh;
+          padding: 10rem 1rem 5rem 1rem;
+          display: none;
+          flex-direction: column;
+        }
+        .imgb {
+          margin-bottom: 20px;
+        }
+        .word1 {
+          margin-bottom: 20px;
+        }
+        .word2 {
+          line-height: 20px;
+        }
+        .btn2 {
+          margin-top: 150px;
+          padding: 15px;
+        }
+        /* Success Page Mobile Style End */
       }
       @media (min-width: 375px) and (max-width: 420px) {
         .wrapper {
@@ -167,15 +252,25 @@
           <img class="imgb" src="./assets/images/icon-list.svg" alt="" />
           <p>And much more!</p></span
         >
-        <form id="signup">
+
+        <!-- Email Form Start -->
+        <form action="#" class="signup" novalidate>
           <div class="forlab">
             <label>Email address </label>
-            <p class="errorr" id="email-error"></p>
+            <p class="errorr">Valid email required</p>
           </div>
-          <input id="email" type="email" placeholder="email@company.com" />
-          <button type="submit">Subscribe to monthly newsletter</button>
+          <input
+            class="email-input"
+            type="email"
+            placeholder="email@company.com"
+            required />
+          <button class="submit" type="submit">
+            Subscribe to monthly newsletter
+          </button>
         </form>
+        <!-- Email Form Ends -->
       </section>
+
       <aside>
         <img
           class="imga"
@@ -183,23 +278,54 @@
           alt="" />
       </aside>
     </div>
-    <script>
-      const emailForm = document.getElementById("signup");
-      const emailInput = document.getElementById("email");
-      const emailError = document.getElementById("email-error");
-      const emailRegex =
-        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-      emailForm.addEventListener("submit", function (event) {
-        if (!emailRegex.test(emailInput.value)) {
-          event.preventDefault();
-          emailError.textContent = "Valid email required";
-          emailError.classList.add("errorr");
+    <!-- Success Message Start -->
+    <div class="container2">
+      <img class="imgb" src="./assets/images/icon-list.svg" alt="" />
+      <h1 class="word1">Thanks for subscribing!</h1>
+      <p class="word2">
+        A confirmation email has been sent to
+        <strong class="email-inputed"></strong>. Please open it and click the
+        button inside to confirm your subscription.
+      </p>
+      <button class="btn2">Dismiss message</button>
+    </div>
+    <!-- Success Message End -->
+
+    <script>
+      const page1 = document.querySelector(".container");
+      const page2 = document.querySelector(".container2");
+      const emailForm = document.querySelector(".signup");
+      const errorrMessage = document.querySelector(".errorr");
+      const inputField = document.querySelector(".email-input");
+      const submitBTN = document.querySelector(".submit");
+      const page2Btn = document.querySelector(".btn2");
+
+      emailForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let displayEmail = document.querySelector(".email-inputed");
+        let emailValue = inputField.value;
+        if (validateEmail(emailValue)) {
+          page1.style.display = "none";
+          page2.style.display = "grid";
+          errorrMessage.style.visibility = "hidden";
+          displayEmail.innerHTML = emailValue;
         } else {
-          emailError.textContent = "";
-          emailError.classList.remove("errorr");
-          window.open("./success.html");
+          errorrMessage.style.visibility = "visible";
+          inputField.style.border = "1px solid var(--red)";
+          inputField.style.color = "var(--red)";
+          inputField.style.backgroundColor = "var(--variantRed)";
         }
+      });
+      // Email Validity
+      const validateEmail = (email) => {
+        var emailRegex =
+          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return emailRegex.test(String(email).toLowerCase());
+      };
+
+      page2Btn.addEventListener("click", () => {
+        location.reload();
       });
     </script>
   </body>
