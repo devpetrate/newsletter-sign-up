@@ -309,7 +309,6 @@
 
       emailForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        let displayEmail = document.querySelector(".email-inputed");
         let emailValue = inputField.value;
         if (validateEmail(emailValue)) {
           page1.style.display = "none";
