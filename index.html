@@ -4,11 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./assets/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
 
     <title>Newsletter sign-up form with success message</title>
 
@@ -265,23 +261,14 @@
             <label>Email address </label>
             <p class="errorr">Valid email required</p>
           </div>
-          <input
-            class="email-input"
-            type="email"
-            placeholder="email@company.com"
-            required />
-          <button class="submit" type="submit">
-            Subscribe to monthly newsletter
-          </button>
+          <input class="email-input" type="email" placeholder="email@company.com" required />
+          <button class="submit" type="submit">Subscribe to monthly newsletter</button>
         </form>
         <!-- Email Form Ends -->
       </section>
 
       <aside>
-        <img
-          class="imga"
-          src="./assets/images/illustration-sign-up-desktop.svg"
-          alt="" />
+        <img class="imga" src="./assets/images/illustration-sign-up-desktop.svg" alt="" />
       </aside>
     </div>
 
@@ -291,8 +278,7 @@
       <h1 class="word1">Thanks for subscribing!</h1>
       <p class="word2">
         A confirmation email has been sent to
-        <strong class="email-inputed"></strong>. Please open it and click the
-        button inside to confirm your subscription.
+        <strong class="email-inputed"></strong>. Please open it and click the button inside to confirm your subscription.
       </p>
       <button class="btn2">Dismiss message</button>
     </div>
@@ -306,6 +292,7 @@
       const inputField = document.querySelector(".email-input");
       const submitBTN = document.querySelector(".submit");
       const page2Btn = document.querySelector(".btn2");
+      const displayEmail = document.querySelector(".email-inputed");
 
       emailForm.addEventListener("submit", (e) => {
         e.preventDefault();
